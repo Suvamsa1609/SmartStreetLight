@@ -1,0 +1,48 @@
+int IR1 = 2;  // IR sensor 1 pin
+int IR2 = 3;  // IR sensor 2 pin
+int IR3 = 4;  // IR sensor 3 pin
+int LDR = A0;  // LDR module pin
+int LED1 = 5;  // LED 1 pin
+int LED2 = 6;  // LED 2 pin
+int LED3 = 7;  // LED 3 pin
+
+void setup() {
+  pinMode(IR1, INPUT);
+  pinMode(IR2, INPUT);
+  pinMode(IR3, INPUT);
+  pinMode(LDR, INPUT);
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
+}
+
+void loop() {
+  int irValue1 = digitalRead(IR1);
+  int irValue2 = digitalRead(IR2);
+  int irValue3 = digitalRead(IR3);
+  int ldrValue = analogRead(LDR);
+
+  if (irValue1 == LOW) {
+    digitalWrite(LED1, HIGH);
+    digitalWrite(LED2, LOW);
+    digitalWrite(LED3, LOW);
+    delay(2000);
+  } 
+else if (irValue2 == LOW) {
+    digitalWrite(LED1, LOW);
+    digitalWrite(LED2, HIGH);
+    digitalWrite(LED3, LOW);
+    delay(2000);
+  } 
+else if (irValue3 == LOW) {
+    digitalWrite(LED1, LOW);
+    digitalWrite(LED2, LOW);
+    digitalWrite(LED3, HIGH)
+    delay(2000);
+  }
+ else {
+    digitalWrite(LED1, LOW);
+    digitalWrite(LED2, LOW);
+    digitalWrite(LED3, LOW);
+  }
+}
